@@ -9,6 +9,7 @@ This project implements an autocomplete search feature using React. It allows us
 - **Search Highlighting**: Highlights the matching part of the text in each suggestion.
 - **Selectable Suggestions**: Users can click on suggestions to auto-fill the input field.
 - **Error Handling**: Displays errors in case of a failed API request.
+- **Multiselect by Default**: The autocomplete component supports selecting multiple suggestions by default.
 - **Loading State**: Displays a loading message while fetching data.
 - **Scrollable Results**: Limits the list height and makes it scrollable when there are many suggestions.
 
@@ -46,6 +47,18 @@ This project implements an autocomplete search feature using React. It allows us
 
    Visit `http://localhost:5173` to view the app.
 
+4. Start Unit tests
+
+   ```bash
+   pnpm test
+   ```
+
+4. Start development build
+
+   ```bash
+   pnpm build
+   ```
+   
 ## Usage
 
 ### Autocomplete Component
@@ -64,7 +77,7 @@ const App: React.FC = () => {
     return (
         <div>
             <h1>Search for Posts</h1>
-            <Autocomplete placeholder={placeholder} />
+            <Autocomplete placeholder={placeholder} multiselect={false}/>
         </div>
     );
 };
