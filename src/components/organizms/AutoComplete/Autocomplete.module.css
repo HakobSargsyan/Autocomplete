@@ -1,0 +1,63 @@
+/* Container */
+.autocompleteContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Input field */
+.autocompleteInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    margin: 10px 0 0;
+}
+
+.autocompleteInput:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Error message */
+.autocompleteError {
+    color: red;
+    font-size: 12px;
+    padding-top: 8px;
+}
+
+/* Loading animation */
+.autocompleteLoading {
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.autocompleteLoading svg {
+    width: 16px;
+    height: 16px;
+    animation: rotate 1s linear infinite;
+}
+
+/* Animation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Chip container */
+.inputWithChips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 15px;
+}
