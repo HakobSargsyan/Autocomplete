@@ -1,0 +1,16 @@
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Common Style for Inputs */
+input {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+}
