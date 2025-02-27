@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {validateInput } from '@shared/helpers';
-import { ApiResponse } from "@interfaces/api.interface";
+import { ApiResponse } from "@interfaces/Api.interface";
 
 const useFetchPosts = (debouncedInputValue: string, url: string) => {
     const [posts, setPosts] = useState<ApiResponse["posts"]>([]);

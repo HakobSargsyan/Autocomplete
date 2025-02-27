@@ -6,10 +6,13 @@ import SuggestionList from "@components/molecules/SuggestionList/SuggestionList"
 import ChipContainer from "@components/molecules/ChipContainer/ChipContainer";
 import styles from './Autocomplete.module.css';
 import { AUTOCOMPLETE_PLACEHOLDER } from "@shared/Constants";
-import { AutocompleteProps } from "@interfaces/autocomplete.interface";
 import apiUrls from "@shared/ApiUrls";
+import {AutocompleteProps} from "@components/organizms/AutoComplete/Autocomplete.interface";
 
-const Autocomplete: React.FC<AutocompleteProps> = ({ placeholder = AUTOCOMPLETE_PLACEHOLDER }) => {
+const Autocomplete: React.FC<AutocompleteProps> = ({
+ placeholder = AUTOCOMPLETE_PLACEHOLDER,
+ multiselect= true,
+}) => {
     const [inputValue, setInputValue] = useState("");
     const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
@@ -22,10 +25,8 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ placeholder = AUTOCOMPLETE_
         setInputValue('');
         setSelectedValues((prevSelectedValues) => {
             if (!prevSelectedValues.includes(item.title)) {
-                // Add if not already selected
-                return [...prevSelectedValues, item.title];
+                return multiselect ? [...prevSelectedValues, item.title] : [item.title];
             }
-            // Return the current array if the item is already selected
             return prevSelectedValues;
         });
     };
@@ -42,9 +43,9 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ placeholder = AUTOCOMPLETE_
 
     return (
         <div className={styles.autocompleteContainer}>
-            {selectedValues.length > 0 && ( <div className={styles.inputWithChips}>
+            {selectedValues.length > 0 ? ( <div className={styles.inputWithChips}>
                     <ChipContainer chips={selectedValues} onRemoveChip={handleRemoveChip} />
-            </div>)}
+            </div>) : null}
             <input
                 className={styles.autocompleteInput}
                 type="text"
