@@ -167,6 +167,6 @@ React will merge these updates and re-render only once.
 
 ## 11. How to render an HTML string coming from the server?
 
-- **Using `dangerouslySetInnerHTML`** (⚠️ Risk of XSS attacks)
+- **Using `dangerouslySetInnerHTML`** (Risk of XSS attacks)
 - **Sanitizing HTML Before Rendering** (Using libraries like `dompurify` to prevent XSS attacks)
 
